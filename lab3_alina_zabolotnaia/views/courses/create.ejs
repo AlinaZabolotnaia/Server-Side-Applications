@@ -1,0 +1,16 @@
+<%- include('../partials/header', { title }) %>
+
+<a href="/courses" class="back-link">← К списку курсов</a>
+
+<div class="card">
+    <h1>Новый курс</h1>
+    <form action="/courses" method="POST" class="course-form" novalidate>
+        <%- include('../partials/courseForm', { course, errors }) %>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <a href="/courses" class="btn btn-secondary">Отмена</a>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

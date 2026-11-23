@@ -1,0 +1,48 @@
+<%# Общие поля формы курса для create.ejs и edit.ejs %>
+<% if (Object.keys(errors).length > 0) { %>
+    <div class="alert alert-error">
+        <strong>Курс не сохранён. Исправьте ошибки:</strong>
+        <ul>
+            <% Object.values(errors).forEach((message) => { %>
+                <li><%= message %></li>
+            <% }) %>
+        </ul>
+    </div>
+<% } %>
+
+<div class="form-group">
+    <label for="title">Название дисциплины</label>
+    <input type="text" id="title" name="title" value="<%= course.title %>"
+           class="<%= errors.title ? 'invalid' : '' %>">
+    <% if (errors.title) { %><p class="field-error"><%= errors.title %></p><% } %>
+</div>
+
+<div class="form-group">
+    <label for="teacher">Преподаватель</label>
+    <input type="text" id="teacher" name="teacher" value="<%= course.teacher %>"
+           class="<%= errors.teacher ? 'invalid' : '' %>">
+    <% if (errors.teacher) { %><p class="field-error"><%= errors.teacher %></p><% } %>
+</div>
+
+<div class="form-row">
+    <div class="form-group">
+        <label for="credits">Количество кредитов</label>
+        <input type="text" id="credits" name="credits" value="<%= course.credits %>" inputmode="decimal"
+               class="<%= errors.credits ? 'invalid' : '' %>">
+        <% if (errors.credits) { %><p class="field-error"><%= errors.credits %></p><% } %>
+    </div>
+
+    <div class="form-group">
+        <label for="semester">Семестр</label>
+        <input type="text" id="semester" name="semester" value="<%= course.semester %>" inputmode="numeric"
+               class="<%= errors.semester ? 'invalid' : '' %>">
+        <% if (errors.semester) { %><p class="field-error"><%= errors.semester %></p><% } %>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="description">Описание</label>
+    <textarea id="description" name="description" rows="4"
+              class="<%= errors.description ? 'invalid' : '' %>"><%= course.description %></textarea>
+    <% if (errors.description) { %><p class="field-error"><%= errors.description %></p><% } %>
+</div>

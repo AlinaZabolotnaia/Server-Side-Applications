@@ -1,0 +1,16 @@
+{
+  "name": "lab3_alina_zabolotnaia",
+  "version": "1.0.0",
+  "description": "Lab 3: course management web app on Express.js, EJS and middleware",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Alina Zabolotnaia",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^7.0.2",
+    "express": "^5.3.0"
+  }
+}
