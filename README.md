@@ -8,5 +8,6 @@
 | № | Тема | Отчёт | Код |
 |---|---|---|---|
 | 1 | Создание простого HTTP-сервера на Node.js | [Отчёт](lab1_alina_zabolotnaia/README.md) | [lab1_alina_zabolotnaia](lab1_alina_zabolotnaia/) |
+| 2 | Создание REST API на Express.js | [Отчёт](lab2_alina_zabolotnaia/README.md) | [lab2_alina_zabolotnaia](lab2_alina_zabolotnaia/) |
 
 Отчёт по каждой работе находится в файле `README.md` внутри папки работы.

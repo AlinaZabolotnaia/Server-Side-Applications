@@ -1,0 +1,15 @@
+{
+  "name": "lab2_alina_zabolotnaia",
+  "version": "1.0.0",
+  "description": "Lab 2: REST API on Express.js (MVC)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Alina Zabolotnaia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
