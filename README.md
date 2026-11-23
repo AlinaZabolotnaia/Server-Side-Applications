@@ -12,7 +12,8 @@
 | 3 | Веб-приложение на Express.js, EJS и middleware | [Отчёт](lab3_alina_zabolotnaia/README.md) | [lab3_alina_zabolotnaia](lab3_alina_zabolotnaia/) |
 | 4 | CRUD-приложение с PostgreSQL и Sequelize | [Отчёт](lab4_alina_zabolotnaia/README.md) | [lab4_alina_zabolotnaia](lab4_alina_zabolotnaia/) |
 | 5 | Аутентификация, авторизация и защита Express-приложения | [Отчёт](lab5_alina_zabolotnaia/README.md) | [lab5_alina_zabolotnaia](lab5_alina_zabolotnaia/) |
+| ИР | **Индивидуальная работа** (совмещённый отчёт по работам №4 и №5) | [Отчёт](individual_work/README.md) | [lab5_alina_zabolotnaia](lab5_alina_zabolotnaia/) |
 
 Отчёт по каждой работе находится в файле `README.md` внутри папки работы.
 
-Работы №4 и №5 выполнены как один проект: в папке `lab5_alina_zabolotnaia` итоговая версия приложения (всё из работы №4 плюс аутентификация и защита), отчёты по работам отдельные.
+Работы №4 и №5 выполнены как один проект: в папке `lab5_alina_zabolotnaia` итоговая версия приложения (всё из работы №4 плюс аутентификация и защита), отчёты по работам отдельные. Совмещённый отчёт по обеим работам: [Индивидуальная работа](individual_work/README.md).
