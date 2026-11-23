@@ -1,0 +1,48 @@
+<%# Общие поля формы курса для courses/create.ejs и courses/edit.ejs %>
+<%- include('formErrors', { errors }) %>
+
+<div class="form-group">
+    <label for="title">Название дисциплины</label>
+    <input type="text" id="title" name="title" value="<%= course.title %>"
+           class="<%= errors.title ? 'invalid' : '' %>">
+    <% if (errors.title) { %><p class="field-error"><%= errors.title %></p><% } %>
+</div>
+
+<div class="form-group">
+    <label for="teacherId">Преподаватель</label>
+    <% if (teachers.length === 0) { %>
+        <p class="field-error">Преподавателей пока нет. Сначала <a href="/teachers/new">добавьте преподавателя</a>.</p>
+    <% } %>
+    <select id="teacherId" name="teacherId" class="<%= errors.teacherId ? 'invalid' : '' %>">
+        <option value="">Выберите преподавателя</option>
+        <% teachers.forEach((teacher) => { %>
+            <option value="<%= teacher.id %>" <%= String(course.teacherId) === String(teacher.id) ? 'selected' : '' %>>
+                <%= teacher.name %> (<%= teacher.department %>)
+            </option>
+        <% }) %>
+    </select>
+    <% if (errors.teacherId) { %><p class="field-error"><%= errors.teacherId %></p><% } %>
+</div>
+
+<div class="form-row">
+    <div class="form-group">
+        <label for="credits">Количество кредитов</label>
+        <input type="text" id="credits" name="credits" value="<%= course.credits %>" inputmode="numeric"
+               class="<%= errors.credits ? 'invalid' : '' %>">
+        <% if (errors.credits) { %><p class="field-error"><%= errors.credits %></p><% } %>
+    </div>
+
+    <div class="form-group">
+        <label for="semester">Семестр</label>
+        <input type="text" id="semester" name="semester" value="<%= course.semester %>" inputmode="numeric"
+               class="<%= errors.semester ? 'invalid' : '' %>">
+        <% if (errors.semester) { %><p class="field-error"><%= errors.semester %></p><% } %>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="description">Описание</label>
+    <textarea id="description" name="description" rows="4"
+              class="<%= errors.description ? 'invalid' : '' %>"><%= course.description %></textarea>
+    <% if (errors.description) { %><p class="field-error"><%= errors.description %></p><% } %>
+</div>

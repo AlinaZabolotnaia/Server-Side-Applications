@@ -1,0 +1,38 @@
+<%# Общие поля формы преподавателя для teachers/create.ejs и teachers/edit.ejs %>
+<%- include('formErrors', { errors }) %>
+
+<div class="form-group">
+    <label for="name">Имя</label>
+    <input type="text" id="name" name="name" value="<%= teacher.name %>"
+           class="<%= errors.name ? 'invalid' : '' %>">
+    <% if (errors.name) { %><p class="field-error"><%= errors.name %></p><% } %>
+</div>
+
+<div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" value="<%= teacher.email %>" inputmode="email"
+           class="<%= errors.email ? 'invalid' : '' %>">
+    <% if (errors.email) { %><p class="field-error"><%= errors.email %></p><% } %>
+</div>
+
+<div class="form-row">
+    <div class="form-group">
+        <label for="department">Кафедра</label>
+        <input type="text" id="department" name="department" value="<%= teacher.department %>"
+               class="<%= errors.department ? 'invalid' : '' %>">
+        <% if (errors.department) { %><p class="field-error"><%= errors.department %></p><% } %>
+    </div>
+
+    <div class="form-group">
+        <label for="academicDegree">Учёная степень</label>
+        <input type="text" id="academicDegree" name="academicDegree" value="<%= teacher.academicDegree %>"
+               list="degrees" class="<%= errors.academicDegree ? 'invalid' : '' %>">
+        <datalist id="degrees">
+            <option value="Master"></option>
+            <option value="PhD"></option>
+            <option value="Doctor"></option>
+            <option value="Doctor habilitat"></option>
+        </datalist>
+        <% if (errors.academicDegree) { %><p class="field-error"><%= errors.academicDegree %></p><% } %>
+    </div>
+</div>

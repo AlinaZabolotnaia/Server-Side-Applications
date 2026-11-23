@@ -1,0 +1,44 @@
+<%- include('../partials/header', { title }) %>
+
+<div class="card auth-card">
+    <h1>Регистрация</h1>
+    <form action="/register" method="POST" novalidate>
+        <%- include('../partials/formErrors', { errors }) %>
+
+        <div class="form-group">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" value="<%= form.name %>" autocomplete="name"
+                   class="<%= errors.name ? 'invalid' : '' %>">
+            <% if (errors.name) { %><p class="field-error"><%= errors.name %></p><% } %>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" value="<%= form.email %>" inputmode="email" autocomplete="email"
+                   class="<%= errors.email ? 'invalid' : '' %>">
+            <% if (errors.email) { %><p class="field-error"><%= errors.email %></p><% } %>
+        </div>
+
+        <%# Поля паролей всегда пустые: введённый пароль обратно в форму не возвращается %>
+        <div class="form-group">
+            <label for="password">Пароль (минимум 6 символов)</label>
+            <input type="password" id="password" name="password" autocomplete="new-password"
+                   class="<%= errors.password ? 'invalid' : '' %>">
+            <% if (errors.password) { %><p class="field-error"><%= errors.password %></p><% } %>
+        </div>
+
+        <div class="form-group">
+            <label for="passwordConfirm">Подтверждение пароля</label>
+            <input type="password" id="passwordConfirm" name="passwordConfirm" autocomplete="new-password"
+                   class="<%= errors.passwordConfirm ? 'invalid' : '' %>">
+            <% if (errors.passwordConfirm) { %><p class="field-error"><%= errors.passwordConfirm %></p><% } %>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        </div>
+        <p class="muted auth-switch">Уже есть аккаунт? <a href="/login">Войти</a></p>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

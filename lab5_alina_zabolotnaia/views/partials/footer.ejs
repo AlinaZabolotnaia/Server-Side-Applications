@@ -1,0 +1,19 @@
+    </main>
+
+    <%# Блок уведомлений: скрыт, пока нет сообщений; заполняется скриптом /js/notifications.js %>
+    <aside id="notifications" class="notifications" aria-live="polite" hidden>
+        <h2 class="notifications-title">Уведомления</h2>
+        <div class="notifications-list"></div>
+    </aside>
+
+    <footer class="site-footer">
+        <div class="container">
+            Alina Zabolotnaia (Korsakova) · группа IAFR2302 · <%= new Date().getFullYear() %>
+        </div>
+    </footer>
+
+    <%# Клиент Socket.IO раздаёт сам сервер Socket.IO по этому адресу %>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/notifications.js"></script>
+</body>
+</html>
