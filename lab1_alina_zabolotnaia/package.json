@@ -1,0 +1,12 @@
+{
+  "name": "lab1_alina_zabolotnaia",
+  "version": "1.0.0",
+  "description": "Lab 1: simple HTTP server on Node.js",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Alina Zabolotnaia",
+  "license": "ISC"
+}
