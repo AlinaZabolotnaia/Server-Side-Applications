@@ -69,28 +69,28 @@
 Приложение построено по архитектуре **MVC**. В `app.js` нет маршрутов, SQL и бизнес-логики: только настройка Express, подключение middleware и запуск HTTP-сервера.
 
 ```mermaid
-flowchart LR
-    B["Браузер"] -->|HTTP-запрос| L["morgan<br/>логирование"]
-    L --> S["express-session<br/>+ currentUser"]
-    S --> R["Router<br/>routes/*.js"]
-    R --> A["auth.js<br/>isAuthenticated / isAdmin"]
-    A --> V["validation.js<br/>express-validator"]
-    V --> C["Controller<br/>controllers/*.js"]
-    C --> M["Model<br/>Sequelize"]
+flowchart TB
+    B["Браузер: HTTP-запрос"] --> L["morgan: логирование"]
+    L --> S["express-session + currentUser"]
+    S --> R["Router: routes/*.js"]
+    R --> A["auth.js: isAuthenticated / isAdmin"]
+    A --> V["validation.js: express-validator"]
+    V --> C["Controller: controllers/*.js"]
+    C --> M["Model: Sequelize"]
     M --> DB[("PostgreSQL")]
-    C -->|res.render| VW["View<br/>EJS"]
-    VW -->|HTML| B
+    C -->|res.render| VW["View: EJS"]
     C -->|io.emit| WS["Socket.IO"]
-    WS -->|courseCreated| B
     C -.->|"next(error)"| E["errorHandler.js"]
-    E -->|страница ошибки| B
+    VW --> OUT["Браузер: HTML-страница"]
+    E --> OUT
+    WS -->|courseCreated| TABS["Все открытые вкладки"]
 
     classDef client fill:#dbeafe,stroke:#1e40af,color:#1e3a8a
     classDef mw fill:#fef3c7,stroke:#b45309,color:#78350f
     classDef core fill:#dcfce7,stroke:#15803d,color:#14532d
     classDef data fill:#ede9fe,stroke:#6d28d9,color:#4c1d95
     classDef err fill:#fee2e2,stroke:#b91c1c,color:#7f1d1d
-    class B client
+    class B,OUT,TABS client
     class L,S,A,V mw
     class R,C,VW,WS core
     class M,DB data
