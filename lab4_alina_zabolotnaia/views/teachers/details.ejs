@@ -1,0 +1,63 @@
+<%- include('../partials/header', { title }) %>
+
+<a href="/teachers" class="back-link">← К списку преподавателей</a>
+
+<% if (error) { %>
+    <div class="alert alert-error"><%= error %></div>
+<% } %>
+
+<article class="card">
+    <h1><%= teacher.name %></h1>
+
+    <dl class="details-list">
+        <dt>Email</dt>
+        <dd><a href="mailto:<%= teacher.email %>"><%= teacher.email %></a></dd>
+
+        <dt>Кафедра</dt>
+        <dd><%= teacher.department %></dd>
+
+        <dt>Учёная степень</dt>
+        <dd><%= teacher.academicDegree %></dd>
+
+        <dt>Количество курсов</dt>
+        <dd><%= courses.length %></dd>
+    </dl>
+
+    <div class="card-actions">
+        <a href="/teachers/<%= teacher.id %>/edit" class="btn btn-edit">Редактировать</a>
+        <form action="/teachers/<%= teacher.id %>/delete" method="POST"
+              onsubmit="return confirm('Вы действительно хотите удалить этого преподавателя?')">
+            <button type="submit" class="btn btn-delete">Удалить</button>
+        </form>
+    </div>
+</article>
+
+<section class="section">
+    <h2>Курсы преподавателя</h2>
+    <% if (courses.length === 0) { %>
+        <p class="empty">У преподавателя пока нет курсов</p>
+    <% } else { %>
+        <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th class="num">Кредиты</th>
+                        <th class="num">Семестр</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% courses.forEach((course) => { %>
+                        <tr>
+                            <td><a href="/courses/<%= course.id %>"><%= course.title %></a></td>
+                            <td class="num"><%= course.credits %></td>
+                            <td class="num"><%= course.semester %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    <% } %>
+</section>
+
+<%- include('../partials/footer') %>
